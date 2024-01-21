@@ -89,7 +89,7 @@ class Crud
     public function insertRecord($tableName, $data_array, $location)
     {
         try {
-            if (empty($tableName) || empty($data_array) || empty($location)) {
+            if (empty($tableName) || empty($data_array)) {
                 throw new InvalidArgumentException("Table Name, DataArray, and Location are required.");
             }
             array_pop($data_array);
@@ -104,7 +104,11 @@ class Crud
                 $stmt->bindValue(":$key", $value);
             }
             $stmt->execute();
-            header("Location: $location");
+            if (!empty($location)) {
+                header("Location: $location");
+            } else {
+                echo "Data Inserted Successfully :)";
+            }
 
             exit;
         } catch (PDOException $e) {
@@ -134,7 +138,7 @@ class Crud
     public function updateRecord($tableName, $formData, $condition, $location)
     {
         try {
-            if (empty($tableName) || empty($formData) || empty($condition) || empty($location)) {
+            if (empty($tableName) || empty($formData) || empty($condition)) {
                 throw new InvalidArgumentException("Table Name, DataArray, and Location are required.");
             }
             array_pop($formData);
@@ -157,6 +161,11 @@ class Crud
             } else {
                 echo "Error in Update Query";
             }
+            if (!empty($location)) {
+                header("Location: $location");
+            } else {
+                echo "Your Record Updated Successfully :)";
+            }
 
         } catch (PDOException $e) {
             echo "Error in UpdateFunction Record" . $e->getMessage();
@@ -165,7 +174,7 @@ class Crud
     public function deleteRecord($tableName, $condition, $location)
     {
         try {
-            if (empty($tableName) || empty($condition) || empty($location)) {
+            if (empty($tableName) || empty($condition)) {
                 throw new InvalidArgumentException("Table Name, DataArray, and Location are required.");
             }
             $query = "DELETE FROM `$tableName` WHERE $condition";
@@ -173,8 +182,11 @@ class Crud
             $stmt = $this->conn->prepare($query);
             $stmt->execute();
 
-            header("Location: $location");
-
+            if (!empty($location)) {
+                header("Location: $location");
+            } else {
+                echo "Your Record Deleted Successfully :)";
+            }
             exit;
         } catch (PDOException $e) {
             echo "Error Inserting Record" . $e->getMessage();
