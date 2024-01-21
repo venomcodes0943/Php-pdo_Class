@@ -18,7 +18,6 @@ class Crud
         $this->createDatabase($this->defaultDb);
         $this->useDatabase($this->defaultDb);
     }
-
     private function establishConnection($host, $dbuser, $dbpassword)
     {
         try {
@@ -41,7 +40,6 @@ class Crud
             echo "Error creating database: " . $e->getMessage();
         }
     }
-
     public function useDatabase($dbName)
     {
         try {
@@ -85,7 +83,6 @@ class Crud
             echo "Error Creating Tbale :" . $e;
         }
     }
-
     public function insertRecord($tableName, $data_array, $location)
     {
         try {
@@ -192,5 +189,4 @@ class Crud
             echo "Error Inserting Record" . $e->getMessage();
         }
     }
-
 }
