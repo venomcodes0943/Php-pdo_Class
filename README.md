@@ -28,7 +28,10 @@ Functions
     - Last one parameter is for add condition to your record that you want to read.
 
 4. deleteRecord
-    - This function is for delete record from your table first it takes table name second is for your condition and third one if for redirection if you want.
+    - This function is for delete record from your table 
+    - First it takes table name 
+    - Second is for your condition and 
+    - Third one if for redirection if you want.
 5. updateRecord
     - This funciton takes three parameters : First one is for table name and second one is for record that you want to update it should be an array.
     - Third is for condition to update a specific record.
