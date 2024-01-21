@@ -4,9 +4,8 @@ Construct function :
 
 1. establishConnection
 2. createDatabase
-
 3. useDatabase
-   ----------
+
 
 #### Crud System
 
