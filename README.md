@@ -23,10 +23,10 @@ Functions
 
 3. showRecord
     - This function also takes three parameter:
-    -First for tablename
-    -Second for choosing columns
-    -Last one parameter is for add condition to your record that you want to read.
-    
+    - First for tablename
+    - Second for choosing columns
+    - Last one parameter is for add condition to your record that you want to read.
+
 4. deleteRecord
     - This function is for delete record from your table first it takes table name second is for your condition and third one if for redirection if you want.
 5. updateRecord
