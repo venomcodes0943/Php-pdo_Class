@@ -18,8 +18,8 @@ Functions
         - 'column name' => 'your custom datatype'
 2. insertRecord
     - This function takes three parameters: First for table name
-    -Second for your table data that you want to insert in table you can simply pass $_POST
-    -The last parameter is for redirection if you want to redirect any other page.
+    - Second for your table data that you want to insert in table you can simply pass $_POST
+    - The last parameter is for redirection if you want to redirect any other page.
 
 3. showRecord
     - This function also takes three parameter:
