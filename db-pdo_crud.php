@@ -61,6 +61,7 @@ class Crud
             }
             //create table query
             $query = "CREATE TABLE IF NOT EXISTS `$tableName`(";
+            $query .= "id INT(11) AUTO_INCREMENT NOT NULL PRIMARY KEY, ";
             foreach ($fields as $feildName => $fieldType) {
                 // $dataType = ($fieldType === 'string') ? 'VARCHAR(255) NOT NULL' : $fieldType;
                 if ($fieldType === 'string') {
