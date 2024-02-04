@@ -48,7 +48,6 @@ class Crud
             }
 
             $this->conn->exec("USE $dbName");
-
         } catch (PDOException $e) {
             echo "Error switching to database: " . $e->getMessage();
         }
@@ -63,7 +62,6 @@ class Crud
             $query = "CREATE TABLE IF NOT EXISTS `$tableName`(";
             $query .= "id INT(11) AUTO_INCREMENT NOT NULL PRIMARY KEY, ";
             foreach ($fields as $feildName => $fieldType) {
-                // $dataType = ($fieldType === 'string') ? 'VARCHAR(255) NOT NULL' : $fieldType;
                 if ($fieldType === 'string') {
                     $dataType = 'VARCHAR(255) NOT NULL';
                 } elseif ($fieldType === 'int') {
@@ -72,14 +70,12 @@ class Crud
                     $dataType = $fieldType;
                 }
                 $query .= "$feildName $dataType ,";
-
             }
             $query .= "update_at VARCHAR(255) DEFAULT CURRENT_TIMESTAMP";
             $query .= ")";
 
             $this->conn->exec($query);
             return true;
-
         } catch (PDOException $e) {
             echo "Error Creating Tbale :" . $e;
         }
@@ -164,7 +160,6 @@ class Crud
             } else {
                 echo "Your Record Updated Successfully :)";
             }
-
         } catch (PDOException $e) {
             echo "Error in UpdateFunction Record" . $e->getMessage();
         }
